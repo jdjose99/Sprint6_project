@@ -5,6 +5,9 @@ import plotly_express as px
 df = pd.read_csv('vehicles_us.csv')
 df['manufacturer'] = df['model'].apply(lambda x: x.split()[0])
 
+model_year_median = df['model_year'].median()
+df['model_year'].fillna(model_year_median, inplace=True)
+
 st.header('Data viewer')
 st.dataframe(df)
 
