@@ -5,8 +5,11 @@ import plotly_express as px
 df = pd.read_csv('vehicles_us.csv')
 df['manufacturer'] = df['model'].apply(lambda x: x.split()[0])
 
-model_year_median = df['model_year'].median()
-df['model_year'].fillna(model_year_median, inplace=True)
+columns_to_fill = ['model_year', 'cylinders', 'odometer', 'is_4wd']
+
+for column in columns_to_fill:
+    median_value = df[column].median()
+    df[column].fillna(median_value, inplace=True)
 
 st.header('Data viewer')
 st.dataframe(df)
