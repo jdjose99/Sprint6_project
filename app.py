@@ -28,7 +28,7 @@ fig = px.histogram(df, x="manufacturer", color="type")
 st.write(fig)
 
 st.header("Price vs Condition")
-fig = px.histogram(df, x="manufacturer", y="price", color="condition")
+fig = px.histogram(df, x="price", color="condition")
 st.write(fig)
 
 st.header("Transmission Type by Manufacturer")
