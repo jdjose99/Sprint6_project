@@ -28,7 +28,7 @@ fig = px.histogram(df, x="manufacturer", color="type")
 st.write(fig)
 
 st.header("Price vs Condition")
-fig = px.histogram(df, x="model_year", color="condition")
+fig = px.histogram(df, x="manufacturer", y="price", color="condition")
 st.write(fig)
 
 st.header("Transmission Type by Manufacturer")
@@ -42,7 +42,7 @@ selected_type = st.selectbox("Select a Vehicle Type:", options=vehicle_types)
 
 filtered_df = df[df["type"] == selected_type]
 
-fig = px.scatter(filtered_df, x="model_year", y="price")
+fig = px.scatter(filtered_df, x="model_year", y="price", color="manufacturer")
 st.write(fig)
 
 st.header("Relationship between Odometer & Year of Manufacture")
